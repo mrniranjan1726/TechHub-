@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login | GIET University</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="login-container">
+    <h2>Student Login</h2>
+    <form id="loginForm">
+      <label for="email">Email:</label>
+      <input type="email" id="email" required>
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" required>
+
+      <button type="submit">Login</button>
+      <p id="loginMsg"></p>
+    </form>
+  </div>
+
+</body>
+<script>
+  document.getElementById("loginForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+    // Just demo check (replace with real DB/backend later)
+    if (email === "student@giet.edu" && password === "123456") {
+      document.getElementById("loginMsg").textContent = "Login Successful! Redirecting...";
+      document.getElementById("loginMsg").style.color = "green";
+      setTimeout(() => {
+        window.location.href = "index.html";
+      }, 1500);
+    } else {
+      document.getElementById("loginMsg").textContent = "Invalid email or password!";
+      document.getElementById("loginMsg").style.color = "red";
+    }
+  });
+</script>
+</html>
